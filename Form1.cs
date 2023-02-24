@@ -39,6 +39,16 @@ namespace struttura
             visualizza(p);
           
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Modifica(p);
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Cancellazione(p);
+            visualizza (p); 
+        }
+        //funzioni di servizio
         public string prodString(prodotto p)
         {
             return "Nome : " + p.nome + "  " + "Prezzo : " + p.prezzo.ToString();
@@ -52,5 +62,53 @@ namespace struttura
             }
            
         }
+        public bool Modifica(prodotto[] pp)
+        {
+            bool trova = false;
+            for(int i = 0; i < dim; i++)
+            {
+                if(p[i].nome == textBox1.Text)
+                {
+                    p[i].nome = textBox2.Text;
+                    p[i].prezzo = float.Parse(textBox3.Text);
+                    visualizza(p);
+                    trova = true;
+                    MessageBox.Show("ELEMENTO MODIFICATO");
+
+
+                }
+                
+            }
+            if(trova == false)
+            {
+                MessageBox.Show("ELEMENTO NON TROVATO");
+            }
+            return trova;
+            
+        }
+        public bool Cancellazione(prodotto[] pp)
+        {
+            bool cerca = false;
+            for(int i = 0; i < dim; i++)
+            {
+               if(p[i].nome == textBox4.Text)
+                {
+                    p[i] = p[dim-1];
+                    dim--;
+                    cerca = true;
+                    MessageBox.Show("ELEMENTO CANCELLATO");
+                    
+                    
+                    
+                }
+            }
+            if(cerca == false)
+            {
+                MessageBox.Show("ELEMENTO NON TROVATO");
+            }
+            return cerca;
+        }
+
+      
     }
 }
