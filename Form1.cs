@@ -48,6 +48,11 @@ namespace struttura
             Cancellazione(p);
             visualizza (p); 
         }
+        private void button3_Click(object sender, EventArgs e)
+        {
+           Sommaprezzi(p);
+
+        }
         //funzioni di servizio
         public string prodString(prodotto p)
         {
@@ -108,7 +113,17 @@ namespace struttura
             }
             return cerca;
         }
+        public void Sommaprezzi(prodotto [] pp)
+        {
+            float somma = 0;
+            for(int i = 0; i < dim; i++)
+            {
+                somma = somma + p[i].prezzo;
+            }
+            MessageBox.Show("Il totale è:" + "\n" + somma + "€");
+          
+        }
 
-      
+     
     }
 }
