@@ -53,6 +53,11 @@ namespace struttura
            Sommaprezzi(p);
 
         }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Sconto(p);
+            visualizza(p);
+        }
         //funzioni di servizio
         public string prodString(prodotto p)
         {
@@ -120,8 +125,20 @@ namespace struttura
             {
                 somma = somma + p[i].prezzo;
             }
-            MessageBox.Show("Il totale è:" + "\n" + somma + "€");
+            MessageBox.Show("Il totale è:" + "\n" + somma + " €");
           
+        }
+        public void Sconto(prodotto [] pp)
+        {
+           
+                for (int i = 0; i < dim; i++)
+                {
+                    p[i].prezzo = (p[i].prezzo * int.Parse(textBox5.Text)) / 100;
+                }
+            
+          
+           
+           
         }
 
      
