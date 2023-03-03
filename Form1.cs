@@ -131,10 +131,22 @@ namespace struttura
         public void Sconto(prodotto [] pp)
         {
            
+           if(int.Parse(textBox5.Text) < 0)
+            {
                 for (int i = 0; i < dim; i++)
                 {
-                    p[i].prezzo = (p[i].prezzo * int.Parse(textBox5.Text)) / 100;
+                    p[i].prezzo = p[i].prezzo + (p[i].prezzo * int.Parse(textBox5.Text)) / 100;
                 }
+            }
+            else
+            {
+                for (int i = 0; i < dim; i++)
+                {
+                    p[i].prezzo = p[i].prezzo + (p[i].prezzo * int.Parse(textBox5.Text)) / 100;
+                }
+            }
+            MessageBox.Show("Prezzi aggiornati");
+         
             
           
            
