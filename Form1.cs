@@ -69,16 +69,17 @@ namespace struttura
             visualizza(p);
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            GeneraFile(p);
-        }
+       
         private void label10_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Se inserisci uno sconto negativo i prezzi verranno diminuiti di quella percentuale." + "\n" +
 
                 "Altrimenti se inserisci uno sconto positivo i prezzi verranno aumentati di quella percentuale"
                 );
+        }
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Minmax(p);
         }
 
         //funzioni di servizio
@@ -182,16 +183,34 @@ namespace struttura
            
            
         }
-        
-        //funzione generazione file
-        public void GeneraFile(prodotto[] pp)
+        //funzione ricerca minimo e massimo prezzo
+        public void Minmax(prodotto[] pp)
         {
-           
-                
-            
-         
+            float min = 0;
+            float max = 0;
+            for(int i = 0; i < dim; i++)
+            {
+                if(i == 0)
+                {
+                    min = p[i].prezzo;
+                    max = p[i].prezzo;
+                }
+                if(p[i].prezzo < min)
+                {
+                    min = p[i].prezzo;
+                }
+                if(p[i].prezzo > max)
+                {
+                    max = p[i].prezzo;
+                }
+             
+            }
+            MessageBox.Show("Il prezzo minimo è: " + min + "€ " + "\n" + "Il prezzo massimo è: " + max + " €");
         }
+        
+       
+       
 
-    
+      
     }
 }
