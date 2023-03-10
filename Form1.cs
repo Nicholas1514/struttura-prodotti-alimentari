@@ -35,7 +35,7 @@ namespace struttura
 
         private void salva_Click(object sender, EventArgs e)
         {
-            if(dim < 100)
+            if(dim <= 100)
             {
                 p[dim].nome = nome.Text;
                 p[dim].prezzo = float.Parse(prezzo.Text);
@@ -208,9 +208,7 @@ namespace struttura
             MessageBox.Show("Il prezzo minimo è: " + min + "€ " + "\n" + "Il prezzo massimo è: " + max + " €");
         }
         
-       
-       
-
+      
       
     }
 }
