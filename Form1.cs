@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+
 
 namespace struttura
 {
@@ -33,10 +35,18 @@ namespace struttura
 
         private void salva_Click(object sender, EventArgs e)
         {
-            p[dim].nome = nome.Text;
-            p[dim].prezzo = float.Parse(prezzo.Text);
-            dim++;
-            visualizza(p);
+            if(dim < 100)
+            {
+                p[dim].nome = nome.Text;
+                p[dim].prezzo = float.Parse(prezzo.Text);
+                dim++;
+                visualizza(p);
+            }
+            else
+            {
+                MessageBox.Show("L'array è pieno");
+            }
+           
           
         }
         private void button1_Click(object sender, EventArgs e)
@@ -58,11 +68,27 @@ namespace struttura
             Sconto(p);
             visualizza(p);
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            GeneraFile(p);
+        }
+        private void label10_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Se inserisci uno sconto negativo i prezzi verranno diminuiti di quella percentuale." + "\n" +
+
+                "Altrimenti se inserisci uno sconto positivo i prezzi verranno aumentati di quella percentuale"
+                );
+        }
+
         //funzioni di servizio
+
+        //funzione per visualizzare nome e prezzo dei prodotti
         public string prodString(prodotto p)
         {
-            return "Nome : " + p.nome + "  " + "Prezzo : " + p.prezzo.ToString();
+            return "Nome : " + p.nome + "  " + "Prezzo : " + p.prezzo.ToString() + " €";
         }
+        //funzione visualizza elenco prodotti
         public void visualizza(prodotto[] pp)
         {
             listView1.Items.Clear();
@@ -72,6 +98,7 @@ namespace struttura
             }
            
         }
+        //funzione modifica
         public bool Modifica(prodotto[] pp)
         {
             bool trova = false;
@@ -96,6 +123,7 @@ namespace struttura
             return trova;
             
         }
+        //funzione cancellazione
         public bool Cancellazione(prodotto[] pp)
         {
             bool cerca = false;
@@ -118,6 +146,7 @@ namespace struttura
             }
             return cerca;
         }
+        //funzione somma dei prezzi dei prodotti
         public void Sommaprezzi(prodotto [] pp)
         {
             float somma = 0;
@@ -128,6 +157,7 @@ namespace struttura
             MessageBox.Show("Il totale è:" + "\n" + somma + " €");
           
         }
+        //funzione sconto / aumento dei prodotti
         public void Sconto(prodotto [] pp)
         {
            
@@ -152,7 +182,16 @@ namespace struttura
            
            
         }
+        
+        //funzione generazione file
+        public void GeneraFile(prodotto[] pp)
+        {
+           
+                
+            
+         
+        }
 
-     
+    
     }
 }

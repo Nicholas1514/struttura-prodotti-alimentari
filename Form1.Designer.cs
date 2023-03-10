@@ -51,6 +51,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // nome
@@ -98,7 +99,7 @@
             // listView1
             // 
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(552, 78);
+            this.listView1.Location = new System.Drawing.Point(606, 81);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(265, 318);
             this.listView1.TabIndex = 5;
@@ -123,9 +124,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(182, 247);
+            this.button1.Location = new System.Drawing.Point(12, 232);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(97, 23);
+            this.button1.Size = new System.Drawing.Size(431, 42);
             this.button1.TabIndex = 8;
             this.button1.Text = "Modifica";
             this.button1.UseVisualStyleBackColor = true;
@@ -182,16 +183,16 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(18, 326);
+            this.textBox4.Location = new System.Drawing.Point(15, 326);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(143, 20);
+            this.textBox4.Size = new System.Drawing.Size(146, 20);
             this.textBox4.TabIndex = 15;
             // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(15, 373);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(146, 23);
+            this.button2.Size = new System.Drawing.Size(146, 48);
             this.button2.TabIndex = 16;
             this.button2.Text = "Cancella";
             this.button2.UseVisualStyleBackColor = true;
@@ -200,7 +201,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(549, 46);
+            this.label8.Location = new System.Drawing.Point(603, 46);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(67, 13);
             this.label8.TabIndex = 17;
@@ -209,7 +210,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(194, 292);
+            this.label9.Location = new System.Drawing.Point(464, 292);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(136, 13);
             this.label9.TabIndex = 18;
@@ -217,9 +218,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(197, 324);
+            this.button3.Location = new System.Drawing.Point(467, 326);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(133, 23);
+            this.button3.Size = new System.Drawing.Size(133, 44);
             this.button3.TabIndex = 19;
             this.button3.Text = "Totale prezzi";
             this.button3.UseVisualStyleBackColor = true;
@@ -228,28 +229,39 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(356, 292);
+            this.label10.Location = new System.Drawing.Point(207, 292);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(161, 13);
+            this.label10.Size = new System.Drawing.Size(215, 13);
             this.label10.TabIndex = 20;
-            this.label10.Text = "Inserisci la percentuale di sconto";
+            this.label10.Text = "Inserisci la percentuale di sconto (clicca qui)";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(359, 326);
+            this.textBox5.Location = new System.Drawing.Point(210, 326);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(112, 20);
+            this.textBox5.Size = new System.Drawing.Size(212, 20);
             this.textBox5.TabIndex = 21;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(359, 373);
+            this.button4.Location = new System.Drawing.Point(210, 373);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(112, 23);
+            this.button4.Size = new System.Drawing.Size(212, 48);
             this.button4.TabIndex = 22;
             this.button4.Text = "Sconto";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(18, 453);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(143, 54);
+            this.button5.TabIndex = 23;
+            this.button5.Text = "Salva file";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Form1
             // 
@@ -257,6 +269,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(896, 533);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label10);
@@ -313,6 +326,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }
 
