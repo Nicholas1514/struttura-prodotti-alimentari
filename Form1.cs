@@ -252,6 +252,48 @@ namespace struttura
             return min;
         }
 
+        public void Generafile(prodotto[]pp)
+        {
+            String line;
+            //scrittura file
+            StreamWriter sw = new StreamWriter("esempio.txt", false);
+            for (int i = 0; i < dim; i++)
+            {
+                sw.WriteLine("Nome : " + p[i].nome + "  " + "Prezzo : " + p[i].prezzo.ToString() + " €");
+            }
+            sw.Close();
+
+            //lettura file
+            if (File.Exists("esempio.txt"))
+            {
+                StreamReader sr = new StreamReader("esempio.txt");
+                //leggo la prima riga
+                line = sr.ReadLine();
+                //controllo se il file è vuoto (i dati esistono)
+                while (line != null)
+                {
+                    
+                    //leggo la nuova riga
+                    line = sr.ReadLine();
+                }
+                //chiudo il file
+                sr.Close();
+            }
+            else
+            {
+                Console.WriteLine("Il file non esiste");
+            }
+
+            Console.ReadLine();
+        }
+       
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Generafile(p);
+            MessageBox.Show("File aggiornato");
+        }
+    }
       
     }
-}
+

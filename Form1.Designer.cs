@@ -283,6 +283,7 @@
             this.button5.TabIndex = 26;
             this.button5.Text = "salva file";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button7
             // 
@@ -292,7 +293,6 @@
             this.button7.TabIndex = 27;
             this.button7.Text = "Quantità";
             this.button7.UseVisualStyleBackColor = true;
-            
             // 
             // Form1
             // 
