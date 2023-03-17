@@ -28,7 +28,7 @@ namespace struttura
             dim = 0;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private async void Form1_Load(object sender, EventArgs e)
         {
 
         }
@@ -46,27 +46,49 @@ namespace struttura
             {
                 MessageBox.Show("L'array è pieno");
             }
-           
-          
+
+            //Task.Delay(5000).Wait();
+            //listView1.Visible = false;
+            //Task.Delay(5000).Wait();
+            //listView1.Visible = true;
+
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            Modifica(p);
+            if(Modifica(p) == true)
+            {
+                MessageBox.Show("Elemento modificato");
+            }
+            else
+            {
+                MessageBox.Show("Elemento non trovato");
+            }
+            
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            Cancellazione(p);
+            if(Cancellazione(p) == true)
+            {
+                visualizza(p);
+                MessageBox.Show("Elemento cancellato");
+            }
+            else
+            {
+                MessageBox.Show("Elemento non trovato");
+            }
             visualizza (p); 
         }
         private void button3_Click(object sender, EventArgs e)
         {
-           Sommaprezzi(p);
+           MessageBox.Show("Il totale dei prezzi è: " + Sommaprezzi(p).ToString() + " €");
+          
 
         }
         private void button4_Click(object sender, EventArgs e)
         {
             Sconto(p);
             visualizza(p);
+            MessageBox.Show("Prezzi aggiornati");
         }
 
        
@@ -79,7 +101,7 @@ namespace struttura
         }
         private void button6_Click(object sender, EventArgs e)
         {
-            Minmax(p);
+            MessageBox.Show("Il prezzo massimo è: " + Max(p).ToString() + "  € " + "Il prezzo minimo è: " + Min(p) + " €"); 
         }
 
         //funzioni di servizio
@@ -111,16 +133,13 @@ namespace struttura
                     p[i].prezzo = float.Parse(textBox3.Text);
                     visualizza(p);
                     trova = true;
-                    MessageBox.Show("ELEMENTO MODIFICATO");
+                   
 
 
                 }
                 
             }
-            if(trova == false)
-            {
-                MessageBox.Show("ELEMENTO NON TROVATO");
-            }
+           
             return trova;
             
         }
@@ -135,27 +154,25 @@ namespace struttura
                     p[i] = p[dim-1];
                     dim--;
                     cerca = true;
-                    MessageBox.Show("ELEMENTO CANCELLATO");
+                   
                     
                     
                     
                 }
             }
-            if(cerca == false)
-            {
-                MessageBox.Show("ELEMENTO NON TROVATO");
-            }
+           
             return cerca;
         }
         //funzione somma dei prezzi dei prodotti
-        public void Sommaprezzi(prodotto [] pp)
+        public float Sommaprezzi(prodotto [] pp)
         {
             float somma = 0;
             for(int i = 0; i < dim; i++)
             {
                 somma = somma + p[i].prezzo;
             }
-            MessageBox.Show("Il totale è:" + "\n" + somma + " €");
+            return somma;
+           
           
         }
         //funzione sconto / aumento dei prodotti
@@ -176,7 +193,7 @@ namespace struttura
                     p[i].prezzo = p[i].prezzo + (p[i].prezzo * int.Parse(textBox5.Text)) / 100;
                 }
             }
-            MessageBox.Show("Prezzi aggiornati");
+            
          
             
           
@@ -184,7 +201,7 @@ namespace struttura
            
         }
         //funzione ricerca minimo e massimo prezzo
-        public void Minmax(prodotto[] pp)
+        public float Max(prodotto[] pp)
         {
             float min = 0;
             float max = 0;
@@ -198,17 +215,43 @@ namespace struttura
                 if(p[i].prezzo < min)
                 {
                     min = p[i].prezzo;
+                    
                 }
                 if(p[i].prezzo > max)
                 {
                     max = p[i].prezzo;
+                   
                 }
              
             }
-            MessageBox.Show("Il prezzo minimo è: " + min + "€ " + "\n" + "Il prezzo massimo è: " + max + " €");
+            return max;
         }
-        
-      
+        public float Min(prodotto[] pp)
+        {
+            float min = 0;
+            float max = 0;
+            for (int i = 0; i < dim; i++)
+            {
+                if (i == 0)
+                {
+                    min = p[i].prezzo;
+                    max = p[i].prezzo;
+                }
+                if (p[i].prezzo < min)
+                {
+                    min = p[i].prezzo;
+
+                }
+                if (p[i].prezzo > max)
+                {
+                    max = p[i].prezzo;
+
+                }
+
+            }
+            return min;
+        }
+
       
     }
 }

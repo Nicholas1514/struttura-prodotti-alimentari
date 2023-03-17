@@ -54,6 +54,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // nome
@@ -283,12 +284,23 @@
             this.button5.Text = "salva file";
             this.button5.UseVisualStyleBackColor = true;
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(409, 81);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 27;
+            this.button7.Text = "Quantità";
+            this.button7.UseVisualStyleBackColor = true;
+            
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(896, 533);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.label11);
@@ -351,6 +363,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button7;
     }
 }
 
